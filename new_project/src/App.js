@@ -11,7 +11,13 @@ import { useState } from 'react';
 function App() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
+  const [data, setData] = useState([]);
 
+const addData = () => {
+  setData([...data, {name,email}])
+  setName ("");
+  setEmail ("");
+}
 
   return (
     <div className="App">
@@ -19,20 +25,27 @@ function App() {
       <div className='form'>
         <Stack direction="row" spacing={2}>
           <TextField value={name}
-          onChange = {(event) => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value)}
             id="outlined-basic"
             label="name"
             variant="outlined" />
 
           <TextField value={email}
-           onChange = {(event) => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             id="outlined-basic"
             label="email"
             variant="outlined" />
-          <Button variant="contained" color="success">
+          <Button onClick={addData} variant="contained" color="success">
             <AddIcon />
           </Button>
         </Stack>
+      </div>
+      <div className='data'>
+<div>
+  <h4>Name</h4>
+  <h4>Email</h4>
+  <h4>Remove</h4>
+</div>
       </div>
     </div>
   );

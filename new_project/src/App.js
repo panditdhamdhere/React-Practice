@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import AddIcon from '@mui/icons-material/Add';
 import { useState } from 'react';
+import Fields from './components/Fields';
 
 
 
@@ -13,11 +14,11 @@ function App() {
   const [email, setEmail] = useState("")
   const [data, setData] = useState([]);
 
-const addData = () => {
-  setData([...data, {name,email}])
-  setName ("");
-  setEmail ("");
-}
+  const addData = () => {
+    setData([...data, { name, email }])
+    setName("");
+    setEmail("");
+  }
 
   return (
     <div className="App">
@@ -41,11 +42,18 @@ const addData = () => {
         </Stack>
       </div>
       <div className='data'>
-<div>
-  <h4>Name</h4>
-  <h4>Email</h4>
-  <h4>Remove</h4>
-</div>
+        <div className='data_val'>
+          <h4>Name</h4>
+          <h4>Email</h4>
+          <h4>Remove</h4>
+        </div>
+        {
+          data.map((element, index) => {
+            return (
+              <Fields name = {element.name} email = {element.email} index={index}/ >
+            )
+          })
+        }
       </div>
     </div>
   );

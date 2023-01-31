@@ -14,14 +14,14 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function App() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+  const [form, setForm] = useState({})
+ 
   const [data, setData] = useState([]);
 
   const addData = () => {
-    setData([...data, { name, email }])
-    setName("");
-    setEmail("");
+    setData([...data, form])
+    setForm(form);
+    
   }
 
 
@@ -35,14 +35,14 @@ function App() {
       <Header />
       <div className='form'>
         <Stack direction="row" spacing={2}>
-          <TextField value={name}
-            onChange={(event) => setName(event.target.value)}
+          <TextField value={form.name}
+            onChange={(event) => setForm({...form, name: event.target.value})}
             id="outlined-basic"
             label="name"
             variant="outlined" />
 
-          <TextField value={email}
-            onChange={(event) => setEmail(event.target.value)}
+          <TextField value={form.email}
+            onChange={(event) => setForm({...form, email: event.target.value})}
             id="outlined-basic"
             label="email"
             variant="outlined" />

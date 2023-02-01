@@ -2,24 +2,24 @@ import './App.css';
 import Header from './components/Header';
 import { useState, useEffect } from 'react';
 function App() {
-  const [num, setNum] = useState(2)
+  const [state, setState] = useState(1)
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const get = await fetch(`https://hub.dummyapis.com/employee?noofRecords=20${num}&idStarts=1001`);
+      const get = await fetch(`https://hub.dummyapis.com/employee?noofRecords=${state}&idStarts=1001`);
       const res = await get.json()
       setData(res)
       console.log(res);
     }
     getData();
-  }, [num])
+  }, [state])
 
 
   return (
     <div>
       <Header />
-      <button onClick={() => setNum(num + 1)}>Click me{num}</button>
+      <button onClick={() => setState(state + 1)}>Click me{state}</button>
 {
 data.map((element, index) => {
   return (

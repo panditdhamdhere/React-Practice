@@ -31,7 +31,7 @@ function App() {
     setData([...arr]);
   }
   return (
-    <div className="App">
+    <div className="App" >
       <Header />
       <div className='form'>
         <Stack direction="row" spacing={2}>
@@ -46,6 +46,13 @@ function App() {
             id="outlined-basic"
             label="email"
             variant="outlined" />
+
+          <TextField value={form.email}
+           onCopy={()=>window.alert("copy mat kar bhai")}
+            id="outlined-basic"
+            label="email"
+            variant="outlined" />
+
           <Button onClick={addData} variant="contained" color="success">
             <AddIcon />
           </Button>

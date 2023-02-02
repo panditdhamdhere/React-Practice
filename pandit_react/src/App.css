@@ -3,13 +3,11 @@
 }
 
 .header {
-background-color: rgb(198, 170, 170);
-display: flex;
-justify-content: space-between;
-justify-content: center;
+background-color: rgb(34, 8, 150);
 text-align: center;
-color: blue;
-;
+padding: 8px 0px 8px 0px;
+display: flex;
+justify-content: space-evenly;
 }
 
 .data {
@@ -21,6 +19,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+
 }
 
 

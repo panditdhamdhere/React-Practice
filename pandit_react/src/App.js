@@ -5,9 +5,9 @@ import About from './components/About';
 import Contact from './components/Contact';
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Link
+
 } from "react-router-dom";
 
 
@@ -18,20 +18,18 @@ function App() {
     <Router>
       <>
         <Header />
-        <Switch>
+        <Routes>
+
           {/* home */}
-          <Route path="/home">
-            <Home />
-          </Route>
+          <Route path="/" element={<Home />} />
           {/* About */}
-          <Route path="/about">
-            <About />
-          </Route>
+          <Route path="/about" element={<About />} />
+
           {/* Contact */}
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
+          <Route path="/contact" element={<Contact />} />
+
+
+        </Routes>
       </>
     </Router>
   );

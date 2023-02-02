@@ -1,10 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 const Header = () => {
   return (
     <div>
       <div className="header">
-        <h1>UseEffect</h1>
+       <Link to = {'/'}> <h1 style={{color: "whie"}}>Home</h1></Link>
+       <Link  to = {'/about'}> <h1 style={{color: "whie"}}>About</h1></Link>
+       <Link  to = {'/contact'}> <h1 style={{color: "whie"}}>Contact</h1></Link>
       </div>
     </div>
   )

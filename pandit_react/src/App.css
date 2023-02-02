@@ -5,14 +5,22 @@
 .header {
 background-color: rgb(198, 170, 170);
 display: flex;
+justify-content: space-between;
 justify-content: center;
 text-align: center;
 color: blue;
+;
 }
 
 .data {
   display: flex;
   justify-content: space-between;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
 

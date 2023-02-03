@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import Error from './components/Error';
 import Mail from './components/Mail';
 import Insta from './components/Insta';
+import UserDetails from './components/UserDetails';
 import {
   BrowserRouter as Router,
   Routes,
@@ -24,13 +25,20 @@ function App() {
         <Routes>
 
           {/* home */}
-          <Route path="/" element={<Home />} />
+          <Route path='/'>
+            <Route index element={<Home />} />
+
+            <Route path="/app" element={<Home />} />
+              <Route path="/app/:userId" element={<UserDetails />} />
+           </Route>
+
           {/* About */}
           <Route path="/about" element={<About />} />
 
           {/* Contact */}
           <Route path="/contact" element={<Contact />} >
-            <Route path="insta" element={<Insta />} />
+            <Route index element={<Insta />} />
+            <Route index path="insta" element={<Insta />} />
             <Route path="mail" element={<Mail />} />
 
           </Route>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-
+import { Link, Outlet } from 'react-router-dom';
 
 const Home = () => {
 
@@ -26,16 +26,17 @@ const Home = () => {
             {
                 data.map((element, index) => {
                     return (
-                        <div className='data' key={index}>
+                        <Link to={`/app/${element.id}`}> <div className='data' key={index}>
                             <h4>{element.firstName}</h4>
                             <h4>{element.email}</h4>
                             <h4>{element.contactNumber}</h4>
                         </div>
+                        </Link>
                     )
                 })
 
             }
-
+            <Outlet />
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -36,7 +36,7 @@ const Home = () => {
                 })
 
             }
-            <Outlet />
+           
         </div>
     )
 }

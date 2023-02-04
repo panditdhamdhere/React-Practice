@@ -43,3 +43,21 @@
   display: flex;
   justify-content: center;
 }
+
+.compa {
+  background-color: aqua;
+  padding: 5px;
+  margin: 8px;
+}
+
+.compb {
+  background-color: blue;
+  padding: 5px;
+  margin: 8px;
+}
+
+.compc {
+  background-color: orange;
+  padding: 5px;
+  margin: 8px;
+}

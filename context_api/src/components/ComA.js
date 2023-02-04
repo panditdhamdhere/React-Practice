@@ -1,13 +1,13 @@
 import React from 'react'
 import ComB from './ComB'
-const ComA = ({data}) => {
+const ComA = () => {
   return (
-    <>
+    <div className='compa'>
     <div>
       ComA
     </div>
-    <ComB data={data} />
-    </>
+    <ComB  />
+    </div>
   )
 }
 

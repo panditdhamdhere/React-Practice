@@ -1,14 +1,14 @@
 import React from 'react'
 import ComC from './ComC'
 
-const ComB = ({data}) => {
+const ComB = () => {
   return (
-    <>
+    <div className='compb'>
     <div>
       ComB
     </div>
-    <ComC data={data}/>
-    </>
+    <ComC />
+    </div>
   )
 }
 

@@ -8,12 +8,12 @@ const AppState = createContext();
 
 function App() {
 
-  const [data, setData] = useState('Pandit');
-
+  const [data, setData] = useState('Panditcodes');
+  const [name, setName] = useState({ name: "pandit", age: 26 });
   return (
     <>
 
-      <AppState.Provider value={data}>
+      <AppState.Provider value={{ data, name }}>
         <Header />
         <ComA />
       </AppState.Provider>
@@ -22,4 +22,4 @@ function App() {
 }
 
 export default App;
-export {AppState}
+export { AppState }

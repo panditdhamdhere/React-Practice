@@ -1,16 +1,87 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import ReactStars from 'react-stars'
+// import reactStars from "react-stars"
 const Cards = () => {
-  return (
-    <div className='flex flex-wrapn justify-between p-3 mt-2'>
-      <div className='card shadow-lg p-2 hover:-translate-y-2'>
-<img className='h-72' src="https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg" alt='movie poster' />
-<h1>Avengers Endgame</h1>
-<h1>Rating: 5</h1>
-<h1>Year: 2019</h1>
-      </div>
-    </div>
-  )
+    const [data, setData] = useState([
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 5,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 2.5,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 3,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 4.5,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 5,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 5,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+        {
+            name: "Avengers Endgame",
+            year: "2018",
+            rating: 5,
+            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
+        },
+
+
+    ])
+
+
+    return (
+        <div className='flex flex-wrap justify-between p-3 mt-2'>
+            {data.map((e, i) => {
+return (
+         
+                <div key={i} className='card font-medium shadow-lg p-2 hover:-translate-y-3 cursor-pointer mt-6 transition-all duration-75'>
+                    <img className='h-72' src={e.img} alt='movie poster' />
+                    <h1><span className='text-blue-500'>Name: </span>{e.name}</h1>
+                    <h1 className='flex items-center mr-1'>
+                        <span className='text-blue-500'>Rating:</span>{e.rating}
+                    <ReactStars size={20}
+                    half={true}
+                    value={e.rating}
+                    edit={false}
+                    />
+                    </h1>
+
+                    <h1><span className='text-blue-500'>Year: </span>{e.year}</h1>
+                </div>
+            )})}
+
+        </div>
+    )
 }
 
 export default Cards

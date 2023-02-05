@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
       <div className='header'>
-        <h1>REACT CONTEXT API</h1>
+        <h1>Custom Hook</h1>
       </div>
     </div>
   )

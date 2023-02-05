@@ -1,25 +1,37 @@
 import { useState } from 'react';
 import './App.css';
-import ComA from './components/ComA';
+import { useEffect } from 'react';
 import Header from './components/Header';
-import { createContext } from 'react';
+import Usefetch from './components/Usefetch';
 
-const AppState = createContext();
 
 function App() {
+const [data] = Usefetch("https://hub.dummyapis.com/employee?noofRecords=10&idStarts=1001")
 
-  const [data, setData] = useState('Panditcodes');
-  const [name, setName] = useState({ name: "pandit", age: 26 });
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   async function getData() {
+  //     const call = await fetch("https://hub.dummyapis.com/employee?noofRecords=10&idStarts=1001");
+
+  //     const res = await call.json();
+  //     console.log(res);
+  //     setData(res);
+
+  //   }
+  //   getData();
+  // }, [])
+
   return (
     <>
-
-      <AppState.Provider value={{ data, name }}>
-        <Header />
-        <ComA />
-      </AppState.Provider>
+      <Header />
+      {data.map((e, i) => {
+        return <h3 key={i}>{e.lasttName}</h3>
+      })
+      }
     </>
   );
 }
 
 export default App;
-export { AppState }
+

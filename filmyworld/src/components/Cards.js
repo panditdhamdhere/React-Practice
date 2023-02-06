@@ -2,61 +2,7 @@ import React, { useState } from 'react'
 import ReactStars from 'react-stars'
 // import reactStars from "react-stars"
 const Cards = () => {
-    const [data, setData] = useState([
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 5,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 2.5,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 3,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 4.5,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 5,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 5,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-        {
-            name: "Avengers Endgame",
-            year: "2018",
-            rating: 5,
-            img: "https://m.media-amazon.com/images/I/71niXI3lxlL._SY679_.jpg"
-        },
-
-
-    ])
+    const [data, setData] = useState([]);
 
 
     return (

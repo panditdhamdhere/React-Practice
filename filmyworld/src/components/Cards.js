@@ -5,6 +5,8 @@ import { getDocs } from 'firebase/firestore';
 // import { getDocs } from 'firebase/firestore';
 import { moviesRef } from './firebase/Firebase';
 // import reactStars from "react-stars"
+import { Link } from 'react-router-dom';
+
 const Cards = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -13,6 +15,7 @@ const Cards = () => {
         async function getData() {
             setLoading(true);
             const _data = await getDocs(moviesRef);
+            console.log(_data.data)
             _data.forEach((doc) => {
                 setData((prv) => [...prv, { ...(doc.data()), id: doc.id }])
             })
@@ -30,7 +33,7 @@ const Cards = () => {
                 data.map((e, i) => {
                     return (
 
-                        <div key={i} className='card font-medium shadow-lg p-2 hover:-translate-y-3 cursor-pointer mt-6 transition-all duration-75'>
+                        <Link to={`/detail/${e.id}`}> <div key={i} className='card font-medium shadow-lg p-2 hover:-translate-y-3 cursor-pointer mt-6 transition-all duration-75'>
                             <img className='h-60 md:h-72' src={e.image} alt='movie poster' />
                             <h1><span className='text-blue-500'>Name: </span>{e.title}</h1>
                             <h1 className='flex items-center mr-1'>
@@ -43,13 +46,13 @@ const Cards = () => {
                             </h1>
 
                             <h1><span className='text-blue-500'>Year: </span>{e.year}</h1>
-                        </div>
+                        </div></Link>
                     );
                 })
             }
 
 
-        </div>
+        </div> 
     )
 }
 

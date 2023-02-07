@@ -14,7 +14,7 @@ const Cards = () => {
             setLoading(true);
             const _data = await getDocs(moviesRef);
             _data.forEach((doc) => {
-                setData((prv) => [...prv, doc.data()])
+                setData((prv) => [...prv, { ...(doc.data()), id: doc.id }])
             })
 
             setLoading(false);

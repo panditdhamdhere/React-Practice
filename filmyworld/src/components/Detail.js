@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { doc, getDoc } from 'firebase/firestore'
 import { db, moviesRef } from './firebase/Firebase'
 import { ThreeDots } from 'react-loader-spinner'
-
+import Reviews from './Reviews'
 
 const Detail = () => {
     const { id } = useParams();
@@ -32,7 +32,7 @@ const Detail = () => {
 
     return (
         <div className='p-4 mt-4 flex flex-col md:flex-row items-center md:items-start w-full justify-center'>
-            { loading ? <div className='h-96 flex w-full justify-center items-center'><ThreeDots height={30} color= "white"/></div> :
+            {loading ? <div className='h-96 flex w-full justify-center items-center'><ThreeDots height={30} color="white" /></div> :
                 <>
                     <img className='h-96 block md:sticky top-24' src={data.image} alt='movie poster' />
 
@@ -44,9 +44,11 @@ const Detail = () => {
                             edit={false}
                         />
                         <p className='mt-2'>{data.description}</p>
+
+                        <Reviews />
                     </div>
                 </>
-}
+            }
         </div>
     )
 }

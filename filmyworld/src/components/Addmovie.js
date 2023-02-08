@@ -26,7 +26,12 @@ const Addmovie = () => {
                 buttons: false,
                 timer: 3000
             })
-           
+           setForm({
+            title: "Successfully Added",
+            icon: "success",
+            buttons: false,
+            timer: 3000
+           })
         } catch(err) {
             swal({
                 title: err,

@@ -45,7 +45,7 @@ const Detail = () => {
                         />
                         <p className='mt-2'>{data.description}</p>
 
-                        <Reviews />
+                        <Reviews id= {id} />
                     </div>
                 </>
             }

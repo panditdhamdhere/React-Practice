@@ -40,7 +40,7 @@ const Cards = () => {
                                 <span className='text-blue-500'>Rating:</span>{e.rating}
                                 <ReactStars size={20}
                                     half={true}
-                                    value={5}
+                                    value={e.rating/e.rated}
                                     edit={false}
                                 />
                             </h1>

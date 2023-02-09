@@ -12,7 +12,9 @@ const Detail = () => {
         title: "",
         year: "",
         image: "",
-        description: ""
+        description: "",
+        rating: 0,
+        rated: 0
     });
 
     const [loading, setLoading] = useState(false);
@@ -40,12 +42,12 @@ const Detail = () => {
                         <h1 className='text-3xl font-bold text-gray-500'>{data.title}<span className='text-xl'>({data.year})</span></h1>
                         <ReactStars size={20}
                             half={true}
-                            value={4.5}
+                            value={data.rating/data.rated}
                             edit={false}
                         />
                         <p className='mt-2'>{data.description}</p>
 
-                        <Reviews id= {id} />
+                        <Reviews id= {id} prevRating={data.rating} userRated={data.rated} />
                     </div>
                 </>
             }

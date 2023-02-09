@@ -6,11 +6,11 @@ import { TailSpin, ThreeDots } from 'react-loader-spinner'
 import swal from 'sweetalert'
 
 const Reviews = ({ id, prevRating, userRated }) => {
-    const [rate, setRate] = useState(0)
+    const [rating, setRating] = useState(0)
     const [loading, setLoading] = useState(false);
     const [reviewsLoading, setReviewsLoading] = useState(false);
     const [form, setForm] = useState("");
-    const [data, setData] = useState();
+    const [data, setData] = useState([]);
 
 
 
@@ -20,16 +20,16 @@ const Reviews = ({ id, prevRating, userRated }) => {
             await addDoc(reviewsRef, {
                 movieid: id,
                 name: "pandit dhamdhere",
-                rate: rate,
+                rating: rating,
                 thought: form,
                 timestamp: new Date().getTime()
             })
             const ref = doc(db, "movies", id)
             await updateDoc(ref, {
-                rate: prevRating + rate,
+                rating: prevRating + rating,
                 rated: userRated + 1
             })
-            setRate(0);
+            setRating(0);
             setForm("");
 
             swal({
@@ -70,8 +70,8 @@ const Reviews = ({ id, prevRating, userRated }) => {
             <ReactStars
                 size={30}
                 half={true}
-                value={rate}
-                onChange={(rates) => setRate(rates)}
+                value={rating}
+                onChange={(rates) => setRating(rating)}
             />
             <input
                 value={form}
@@ -89,7 +89,7 @@ const Reviews = ({ id, prevRating, userRated }) => {
                 <div className='mt-4 p-2'>
                     {data.map((e, i) => {
                         return (
-                            <div className='bg-gray-500 p-2 w-full border-b border-red-500 mt-2' key={i}>
+                            <div className='bg-gray-500 p-2 w-full border-b header bg-opacity-50 border-red-500 mt-2' key={i}>
                                 <div className='flex items-center'>
                                     <p className='text-blue-500'>{e.name}</p>
                                     <p className='ml-3 text-xs'>{new Date(e.timestamp).toLocaleString()}</p>

@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Addmovie from "./components/Addmovie";
 import Detail from "./components/Detail";
 import { createContext, useEffect, useState } from "react";
+import Login from "./components/Login";
+import Signin from "./components/Signin";
 
 const Appstate = createContext ();
 
@@ -21,6 +23,8 @@ function App() {
        <Route path="/" element={<Cards/>}/>
        <Route path="/addmovie" element={<Addmovie />} />
        <Route path="/detail/:id" element={<Detail />} />
+       <Route path="/login" element={<Login />} />
+       <Route path="/signin" element={<Signin />} />
       </Routes>
 
     </div>

@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth'
-import app from '../firebase/firebase'
+// import app from '../firebase/firebase'
 import swal from "sweetalert";
+// import { addDoc } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
-import { usersRef } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import bcrypt from 'bcryptjs';
+import { usersRef } from "./firebase/Firebase";
+import app from "./firebase/Firebase";
 
-//import bcrypt from 'bcryptjs';
-// const auth = getAuth(app);
 
 const auth = getAuth(app);
 
@@ -156,7 +157,7 @@ const Signin = () => {
                         <div class="relative">
                             <label for="message" class="leading-7 text-sm text-white font-bold">Password</label>
                             <input
-
+                                type={'password'}
                                 id="message"
                                 name="message"
                                 value={form.password}
@@ -167,7 +168,7 @@ const Signin = () => {
                     </div>
                     <div className='p-2 w-full md:w-full'>
                         <button
-                            onClick={request}
+                            onClick={requestOtp}
                             class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg">
                             {loading ? <TailSpin height={25} color="white" /> : 'Request OTP'}</button>
                     </div>

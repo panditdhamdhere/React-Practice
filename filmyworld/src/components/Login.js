@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { TailSpin } from 'react-loader-spinner';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { query, where, getDocs, querySnapshot } from 'firebase/firestore';
+import swal from 'sweetalert';
+import { usersRef } from './firebase/Firebase';
+import bcrypt from 'bcryptjs'
+import { Appstate } from '../App';
 
 const Login = () => {
+    const useAppState = useContext(Appstate);
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         mobile: "",
         password: ""
@@ -10,6 +17,48 @@ const Login = () => {
     })
 
     const [loading, setLoading] = useState(false);
+    const login = async () => {
+        setLoading(true);
+        try {
+            const quer = query(usersRef, where('mobile', '==', form.mobile))
+            const querySnapshot = await getDocs(quer);
+
+            querySnapshot.forEach((doc) => {
+                const _data = doc.data();
+                const isUser = bcrypt.compareSync(form.password, _data.password);
+                if (isUser) {
+                    useAppState.setLogin(true);
+                    useAppState.setUserName(_data.name);
+                    
+                    swal({
+                        title: "Logged In",
+                        icon: "success",
+                        buttons: false,
+                        timer: 3000
+                    })
+                    navigate('/');
+                } else {
+                    swal({
+                        title: "Invalid Credentials",
+                        icon: "error",
+                        buttons: false,
+                        timer: 3000
+                    })
+                }
+            })
+
+
+        }
+        catch (error) {
+            swal({
+                title: "error.message",
+                icon: "error",
+                buttons: false,
+                timer: 3000
+            })
+        }
+        setLoading(false);
+    }
 
     return (
         <div className='w-full flex flex-col mt-8 items-center'>
@@ -34,7 +83,7 @@ const Login = () => {
                 <div class="relative">
                     <label for="message" class="leading-7 text-sm text-white font-bold">Password</label>
                     <input
-
+                        // type={password}
                         id="message"
                         name="message"
                         value={form.password}
@@ -45,6 +94,7 @@ const Login = () => {
             </div>
             <div className='p-2 w-full md:w-full'>
                 <button
+                    onClick={login}
                     class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-700 rounded text-lg">{loading ? <TailSpin height={25} color="white" /> : 'Login'}</button>
             </div>
             <div>
@@ -59,4 +109,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;

@@ -28,4 +28,11 @@ h1 {
   padding: 3px;
   font-weight: bold;
   text-align: start;
+  width: 22%;
+  margin-top: 14px;
+}
+
+.movie img {
+  height: 220px;
+  width: 100%;
 }

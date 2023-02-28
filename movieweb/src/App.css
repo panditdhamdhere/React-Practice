@@ -16,7 +16,11 @@ h1 {
 
 .main {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  
   flex-wrap: wrap;
   padding: 14px;
 }
@@ -37,4 +41,27 @@ h1 {
   width: 100%;
   background-color: aqua;
 }
+.btn {
+  background-color: rgb(49, 21, 189);
+  color: #fff;
+  padding: 5px;
+  margin: 5px;
+}
 
+buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  color: black;
+  font-size: 90px;
+  margin: 10px;
+}
+
+.new {
+  background-color: blue;
+  color:aqua
+  
+}

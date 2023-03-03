@@ -9,6 +9,7 @@ import { useState } from 'react';
 // import Button from '@mui/material/Button';
 // import Stack from '@mui/material/Stack';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -80,7 +81,9 @@ function App() {
           })
         }
       </div>
+      <Footer />
     </div>
+   
   );
 }
 
